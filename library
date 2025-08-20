@@ -1,0 +1,52 @@
+package libraryy;
+
+import java.util.ArrayList;
+
+class Book {
+    String title;
+    Book(String title) {
+        this.title = title;
+    }
+}
+
+class Member {
+    String name;
+    ArrayList<Book> borrowedBooks = new ArrayList<>();
+    Member(String name) {
+        this.name = name;
+    }
+    void borrowBook(Book book) {
+        borrowedBooks.add(book);
+    }
+}
+
+class Library {
+    ArrayList<Member> members = new ArrayList<>();
+    void addMember(Member member) {
+        members.add(member);
+    }
+    int countBorrowedBooks(Member member) {
+        return member.borrowedBooks.size();
+    }
+}
+package libraryy;
+
+public class Main {
+
+	public static void main(String[] args) { {
+		        Library library = new Library();
+		        Member m1 = new Member("Alice");
+		        Book b1 = new Book("Java Programming");
+		        Book b2 = new Book("Python Basics");
+		        m1.borrowBook(b1);
+		        m1.borrowBook(b2);
+		        library.addMember(m1);
+		        System.out.println("Books borrowed by " + m1.name + ": " + library.countBorrowedBooks(m1));
+		    }
+		}
+
+	}
+
+
+
+
